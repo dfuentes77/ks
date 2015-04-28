@@ -55,3 +55,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# kickstarter script db
+ks.db

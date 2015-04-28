@@ -1,46 +1,8 @@
 README
 --------
 
-Flexible invocation
-*******************
 
-The application can be run right from the source directory, in two different
-ways:
-
-1) Treating the **ks** directory as a package **and** as the main script::
-
-    $ python -m ks -h
-    Usage: ks.py [OPTIONS] COMMAND [ARGS]...
-
-    Mini Kickstarter command line tool.
-
-    Options:
-      -h, --help  Show this message and exit.
-
-    Commands:
-      back     Backs a project
-      backer   List projects a backer has backed
-      list     List backers of a project
-      project  Creates a project
-
-2) Using the **ks-runner.py** wrapper::
-
-    $ ./ks-runner.py -h
-    Usage: ks.py [OPTIONS] COMMAND [ARGS]...
-
-    Mini Kickstarter command line tool.
-
-    Options:
-      -h, --help  Show this message and exit.
-
-    Commands:
-      back     Backs a project
-      backer   List projects a backer has backed
-      list     List backers of a project
-      project  Creates a project
-
-
-Installation sets up ks command
+Installation sets up ``ks`` command
 **************************************
 
 First off, if you don't have pip or virtualenv installed (you can check with ``pip list``)::
@@ -69,6 +31,50 @@ Now, the ``ks`` command is available::
       backer   List projects a backer has backed
       list     List backers of a project
       project  Creates a project
+
+
+Each subcommand has its own help::
+
+    $ ks project -h 
+    Usage: ks project [OPTIONS] PROJECTNAME TARGETAMOUNT
+
+      Create a new project with a project name and a target dollar amount
+
+    Options:
+      -h, --help  Show this message and exit.
+
+
+
+    $ ks back -h 
+    Usage: ks back [OPTIONS] BACKERNAME PROJECTNAME CREDITCARD BACKERAMOUNT
+
+      Back a project with a given backer name, the project to be backed, a
+        credit card number and a backing dollar amount
+
+    Options:
+      -h, --help  Show this message and exit.
+
+
+
+    $ ks list -h 
+    Usage: ks list [OPTIONS] PROJECTNAME
+
+      Display a project including backers and backed amounts
+
+    Options:
+      -h, --help  Show this message and exit.
+
+
+
+    $ ks backer -h 
+    Usage: ks backer [OPTIONS] BACKERNAME
+
+      Display a list of projects that a backer has backed and the amounts backed
+
+    Options:
+      -h, --help  Show this message and exit.
+
+
 
 Running tests
 ***********************
