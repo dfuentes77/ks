@@ -52,9 +52,14 @@ def back(backername,projectname,creditcard,backeramount):
         with con:
             cur = con.cursor()    
             cur.execute("SELECT Id FROM backers where CC=?", (creditcard,))
-            exists = cur.fetchone()
-            if exists:
+            CCexists = cur.fetchone()
+            cur.execute("SELECT Id FROM projects where Name=?", (projectname,))
+            Projexists = cur.fetchone()
+            if CCexists:
                 click.echo('ERROR: That card has already been added by another user!')
+                sys.exit()
+            elif not Projexists:
+                click.echo("That project doesn't exist!")
                 sys.exit()
             cur.execute("INSERT INTO backers (Name, Projectname, CC, Bamount) VALUES (?, ?, ?, ?)", (backername, projectname, creditcard, backeramount))
             click.echo("%s backed project %s for $%-.2f" % (backername, projectname, backeramount))
