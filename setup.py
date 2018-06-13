@@ -17,7 +17,6 @@ setup(
         "console_scripts": ['ks = ks.ks:main']
         },
     description = "Kickstarter command line tool.",
-    author = "Damian Fuentes",
-    author_email = "dfuentes77@gmail.com",
+    author = "Damian Fuentes"
     )
 
